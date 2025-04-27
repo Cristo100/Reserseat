@@ -2,12 +2,15 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <section style={{ textAlign: 'center', marginTop: '2rem' }}>
-      <h1>Bienvenido al comedor empresarial</h1>
-      <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+    <main className="page">
+      <h1 className="title">RESERSEAT, reserve ya</h1>
+
+      <div className="actions column">
         <Link to="/reservation" className="btn btn-primary">Reservar asiento</Link>
-        <Link to="/menu" className="btn btn-secondary">Ver menú</Link>
+        <Link to="/menu"        className="btn btn-accent">Ver menú</Link>
+        <Link to="/profile"     className="btn btn-accent">Tu perfil</Link>
+        <Link to="/about"       className="btn btn-accent">Sobre nosotros</Link>
       </div>
-    </section>
+    </main>
   );
 }

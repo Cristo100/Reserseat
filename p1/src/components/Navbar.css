@@ -1,22 +1,43 @@
+/* Barra completa */
 .navbar {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 0.75rem 1rem;
-}
-.navbar nav {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
 }
+
+/* Marca */
+.brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #0f172a;            /* slate-900 */
+}
+
+/* Contenedor enlaces */
+.nav-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Enlace normal */
 .nav-link {
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  color: #374151;
-}
-.nav-link.active {
-  background: #2563eb;
-  color: #ffffff;
+  position: relative;
+  padding: 0.6rem 1rem;
+  font-weight: 500;
+  color: #334155;            /* slate-700 */
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease;
 }
 .nav-link:hover {
-  background: #e0e7ff;
+  background: #e0f2fe;       /* sky-100 */
+}
+
+/* Enlace activo (página actual) */
+.nav-link.active {
+  background: linear-gradient(90deg, #0ea5e9 0%, #6366f1 100%);
+  color: #ffffff;
 }

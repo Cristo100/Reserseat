@@ -6,6 +6,7 @@ import ReservationPage from './pages/Reservation';
 import MenuPage from './pages/Menu';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
+import About from './pages/About';
 import './App.css';
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </>

@@ -1,17 +1,176 @@
-/* Simple global styles (you can replace with Tailwind later) */
-* {
-  box-sizing: border-box;
+/* ──────────────────────────────────
+   0. Design Tokens
+   ────────────────────────────────── */
+   :root {
+    /* Color scale */
+    --mint-100: #e8faf1;
+    --mint-400: #34d399;
+    --mint-600: #059669;
+  
+    --coral-100: #feecf0;
+    --coral-400: #fb7185;
+    --coral-600: #be123c;
+  
+    --gray-50:  #f9fafb;
+    --gray-800: #1f2937;
+  
+    /* Core roles */
+    --c-primary:   var(--mint-600);
+    --c-primary-bg:var(--mint-100);
+  
+    --c-accent:    var(--coral-600);
+    --c-accent-bg: var(--coral-100);
+  
+    --c-surface:   #ffffff;
+    --c-text:      var(--gray-800);
+  
+    /* Typography & spacing */
+    --font-base: 'Inter', system-ui, sans-serif;
+    --radius-lg:  1.25rem;
+    --space-1:    .25rem;
+    --space-2:    .5rem;
+    --space-3:    1rem;
+    --space-4:    1.5rem;
+  }
+  
+  /* ──────────────────────────────────
+     1. Reset mínimo
+     ────────────────────────────────── */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-base);
+    color: var(--c-text);
+    background: var(--c-primary-bg);
+  }
+  
+  /* ──────────────────────────────────
+     2. Layout genérico
+     ────────────────────────────────── */
+  .page {
+    max-width: 960px;
+    margin: calc(var(--space-4) * 3) auto var(--space-4);
+    padding: 0 var(--space-3);
+  }
+  
+  /* ──────────────────────────────────
+     3. Títulos
+     ────────────────────────────────── */
+  .title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 var(--space-4);
+    color: var(--c-primary);
+  }
+  
+  /* ──────────────────────────────────
+     4. Navbar
+     ────────────────────────────────── */
+  .navbar {
+    position: sticky;
+    top: 0;
+    inset-inline: 0;
+    z-index: 50;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    padding: var(--space-3) var(--space-4);
+    background: var(--c-surface);
+    border-bottom: 2px solid var(--c-primary);
+    box-shadow: 0 1px 4px rgb(0 0 0 / .08);
+  }
+  
+  .navbar .brand {
+    font-weight: 800;
+    color: var(--c-primary);
+    margin: 0;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: var(--c-text);
+    font-weight: 600;
+    margin-inline-start: var(--space-3);
+    transition: color .2s;
+  }
+  .navbar a:hover,
+  .navbar a:focus-visible { color: var(--c-accent); }
+  
+  /* ──────────────────────────────────
+     5. Botones
+     ────────────────────────────────── */
+  .btn {
+    display: inline-block;
+    min-width: 220px;
+    padding: var(--space-3) var(--space-4);
+    font-size: 1.125rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: transform .25s, box-shadow .25s, filter .25s;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, var(--c-primary), var(--mint-400));
+    color: #fff;
+  }
+  .btn-accent {
+    background: linear-gradient(90deg, var(--c-accent), var(--coral-400));
+    color: #fff;
+  }
+  
+  .btn:hover,
+  .btn:focus-visible {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 8px 18px rgb(0 0 0 / .18);
+  }
+  .btn:active {
+    transform: none;
+    box-shadow: 0 4px 10px rgb(0 0 0 / .14);
+  }
+  
+  /* ──────────────────────────────────
+     6. Agrupador de acciones
+     ────────────────────────────────── */
+  .actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .actions.column {
+    flex-direction: column;
+  }
+  
+  /* ──────────────────────────────────
+     7. Utilidades
+     ────────────────────────────────── */
+  .fade-in {
+    animation: fade-in .6s ease-out both;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+
+
+/* ─────────── Reservación ─────────── */
+.reservation-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
-a {
-  text-decoration: none;
-  color: inherit;
-}
-input, button, select {
-  font-family: inherit;
-}
-.input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
+
+/* Inputs algo más “aireados” solo en esta vista                 */
+.reservation-grid input,
+.reservation-grid select {
+  padding: calc(var(--space-3) * 1.25);
+  font-size: 1rem;
 }
