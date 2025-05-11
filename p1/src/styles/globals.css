@@ -174,3 +174,30 @@
   padding: calc(var(--space-3) * 1.25);
   font-size: 1rem;
 }
+
+
+/* formulario de 2 col × 2 filas adaptable */
+.reservation-form-grid{
+  display:grid;
+  gap:1rem;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+}
+
+.reserved-list{
+  margin-top:var(--space-6);
+}
+
+.reserved-seats-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem .75rem;
+  list-style:none;
+  padding:0;
+}
+
+.reserved-seats-grid .badge{
+  background:var(--color-light);
+  border-radius:.75rem;
+  padding:.35rem .75rem;
+  font-size:.9rem;
+}
